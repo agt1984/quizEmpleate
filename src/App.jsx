@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import { useEffect, useMemo, useState } from "react";
 import Start from "./components/Start";
 import Timer from "./components/Timer";
@@ -138,22 +138,25 @@ function App() {
               </>
             )}
           </div>
-          <div className="pyramid">
-            <ul className="moneyList">
-              {moneyPyramid.map((m) => (
-                <li
-                  className={
-                    questionNumber === m.id
-                      ? "moneyListItem active"
-                      : "moneyListItem"
-                  }
-                >
-                  <span className="moneyListItemNumber">{m.id}</span>
-                  <span className="moneyListItemAmount">{m.amount}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {!timeOut && ( // Asegura que el componente de la pirámide de dinero solo se muestre cuando timeOut sea falso
+            <div className="pyramid">
+              <ul className="moneyList">
+                {moneyPyramid.map((m) => (
+                  <li
+                    key={m.id}
+                    className={
+                      questionNumber === m.id
+                        ? "moneyListItem active"
+                        : "moneyListItem"
+                    }
+                  >
+                    <span className="moneyListItemNumber">{m.id}</span>
+                    <span className="moneyListItemAmount">{m.amount}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </>
       )}
     </div>

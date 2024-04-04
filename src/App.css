@@ -32,10 +32,12 @@
   align-items: center;
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer; /* Añadido cursor pointer */
 }
 
+.moneyListItem:hover,
 .moneyListItem.active {
-  background-color: teal;
+  background-color: teal; /* Cambiado color a teal */
 }
 
 .moneyListItemNumber {
@@ -121,18 +123,13 @@
 }
 
 @keyframes correct {
-  0%,
-  22%,
-  42% {
+  0%, 22%, 42% {
     background: mediumblue;
   }
-  20%,
-  40%,
-  60% {
+  20%, 40%, 60% {
     background: linear-gradient(#0e0124, #22074d);
   }
-  62%,
-  100% {
+  62%, 100% {
     background: green;
   }
 }
@@ -142,18 +139,13 @@
 }
 
 @keyframes wrong {
-  0%,
-  22%,
-  42% {
+  0%, 22%, 42% {
     background: mediumblue;
   }
-  20%,
-  40%,
-  60% {
+  20%, 40%, 60% {
     background: linear-gradient(#0e0124, #22074d);
   }
-  62%,
-  100% {
+  62%, 100% {
     background: crimson;
   }
 }

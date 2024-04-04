@@ -35,7 +35,7 @@ export default function Trivia({
     setSelectedAnswer(a);
     setClassName("answer active");
     delay(3000, () => {
-      setClassName(a.correct ? "respuesta correcta" : "respuesta incorrecta");
+      setClassName(a.correct ? "answer correct" : "answer wrong");
     });
     // setTimeout(() => {
     //   setClassName(a.correct ? "answer correct" : "answer wrong");
