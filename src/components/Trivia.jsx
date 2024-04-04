@@ -1,38 +1,54 @@
 import { useEffect, useState } from "react";
+import useSound from "use-sound";
+import play from "../assets/play.mp3"
+import correct from "../assets/correct.mp3";
+import wrong from "../assets/wrong.mp3";
 
 export default function Trivia({
   data,
-  setStop,
+  setTimeOut,
   questionNumber,
   setQuestionNumber,
 }) {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setselectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
+  const [letsPlay] = useSound(play)
+  const [correctAnswer] = useSound(correct);
+  const [wrongAnswer] = useSound(wrong);
 
+  useEffect(() => {
+    letsPlay();
+  }, [letsPlay]);
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]); //como el primer elemento del array es cero, le coloco menos 1
   }, [data, questionNumber]);
 
   const delay = (duration, callback) => {
-    setTimeout(()=>{
-        callback()
+    setTimeout(() => {
+      callback();
     }, duration);
-  }
+  };
 
   const handleClick = (a) => {
     setselectedAnswer(a);
     setClassName("answer active");
-    delay(3000, ()=> 
-        setClassName(a.correct ? "answer correct" : "answer wrong")
+    delay(3000, () =>
+      setClassName(a.correct ? "answer correct" : "answer wrong")
     );
-    delay(6000, () =>{
+    delay(5000, () => {
         if (a.correct) {
-            setQuestionNumber((prev) => prev + 1);
-            setselectedAnswer(null);
-        }else{
-            setStop(true);
+           correctAnswer();
+           delay(1000, () => {
+               setQuestionNumber((prev) => prev + 1);
+               setselectedAnswer(null);
+           })
+        } else {
+           wrongAnswer();
+           delay(1000, () => {
+               setTimeOut(true);  
+           })
         }
     });
   };
@@ -42,7 +58,10 @@ export default function Trivia({
       <div className="question">{question?.question}</div>
       <div className="answers">
         {question?.answers.map((a) => (
-          <div className={selectedAnswer === a ? className : "answer"} onClick={() => handleClick(a)}>
+          <div
+            className={selectedAnswer === a ? className : "answer"}
+            onClick={() => handleClick(a)}
+          >
             {a.text}
           </div>
         ))}
