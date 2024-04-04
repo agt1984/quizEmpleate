@@ -13,44 +13,46 @@ function App() {
   const data = [
     {
       id: 1,
-      question: "Rolex is a company that specializes in what type of product?",
+      question:
+        "¿Es recomendable incluir estos apartados en tu CV?: Datos Personales, Experiencia Profesional, Formación Académica y Complementaria, Idiomas, Conocimientos Tecnológicos y Otros datos de interés.",
       answers: [
         {
-          text: "Phone",
+          text: "Falso",
           correct: false,
         },
         {
-          text: "Watches",
+          text: "Verdadero",
           correct: true,
         },
         {
-          text: "Food",
+          text: "Depende del reclutador",
           correct: false,
         },
         {
-          text: "Cosmetic",
+          text: "Ninguna de las anteriores",
           correct: false,
         },
       ],
     },
     {
       id: 2,
-      question: "When did the website `Facebook` launch?",
+      question:
+        "¿Es recomendable incluir una foto profesionaly reciente en tu CV?",
       answers: [
         {
-          text: "2004",
+          text: "Verdadero, ayuda con la primera impresion",
           correct: true,
         },
         {
-          text: "2005",
+          text: "Falso, genera sezgo de percepcion",
           correct: false,
         },
         {
-          text: "2006",
+          text: "verdadero, pero mejor con aspecto sexy",
           correct: false,
         },
         {
-          text: "2007",
+          text: "falso, es mejor fotoshopearla",
           correct: false,
         },
       ],
