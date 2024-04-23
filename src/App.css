@@ -1,3 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
@@ -23,6 +27,8 @@
 .title {
   text-align: center;
   width: 40vw;
+  font-weight: 700;
+  font-size: larger;
 }
 
 .pyramid {
@@ -194,6 +200,8 @@
 }
 
 .startButton {
+  background-color: white;
+  color: #f25e40;
   margin-top: 30px;
   width: 250px;
   height: 40px;
@@ -237,6 +245,9 @@
 
 /* For screens smaller than 480px */
 @media only screen and (max-width: 479px) {
+  .pyramid {
+    display: none;
+  }
   .timer {
     font-size: 20px;
   }

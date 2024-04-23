@@ -1,8 +1,8 @@
 import "./App.css";
-import { useEffect, useMemo, useState } from "react";
-import Start from "./components/Start";
-import Timer from "./components/Timer";
-import Trivia from "./components/Trivia";
+import React, { useEffect, useMemo, useState } from "react";
+import Start from "./components/Start.jsx";
+import Timer from "./components/Timer.jsx";
+import Trivia from "./components/Trivia.jsx";
 
 function App() {
   const [startPage, setStartPage] = useState(true);
