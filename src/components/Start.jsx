@@ -1,18 +1,16 @@
-import { useRef } from 'react'
-
-export default function Start({setUsername}) {
-  const inputRef = useRef();  
-
-  const handleClick =()=>{
-    inputRef.current.value && setUsername(inputRef.current.value);
-  }
+export default function Start({ setStartPage }) {
+  const handleClick = () => {
+    setStartPage(false);
+  };
   return (
-    <div className='start'>
-        <input 
-            placeholder='ingresa tu nombre' className='startInput'
-            ref={inputRef}
-        />
-        <button className='startButton' onClick={handleClick}>Comenzar</button>
+    <div className="start">
+      <h1 className="title">
+        ¡Pon a prueba tus conocimientos sobre cómo crear un CV que te ayude a
+        conseguir más entrevistas de trabajo!
+      </h1>
+      <button className="startButton" onClick={handleClick}>
+        Comenzar
+      </button>
     </div>
-  )
+  );
 }

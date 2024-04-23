@@ -1,16 +1,28 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
 .app {
   height: 100vh;
   display: flex;
   color: white;
-  background-color: #020230;
+  background-color: #f25e40;
 }
 
 .main {
-  width: 75%;
+  width: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
-    url("./assets/bgmodif.jpg") center;
+    url("./assets/bg.jpg") repeat center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  width: 40vw;
 }
 
 .pyramid {
@@ -32,12 +44,12 @@
   align-items: center;
   padding: 5px;
   border-radius: 5px;
-  cursor: pointer; /* Añadido cursor pointer */
+  cursor: pointer;
 }
 
 .moneyListItem:hover,
 .moneyListItem.active {
-  background-color: teal; /* Cambiado color a teal */
+  background-color: teal;
 }
 
 .moneyListItemNumber {
@@ -52,7 +64,7 @@
 }
 
 .top {
-  height: 50%;
+  height: 20vh;
   position: relative;
 }
 
@@ -66,7 +78,8 @@
   justify-content: center;
   position: absolute;
   bottom: 10px;
-  left: 80px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 30px;
   font-weight: 700;
 }
@@ -76,7 +89,7 @@
 }
 
 .trivia {
-  height: 100%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,13 +136,18 @@
 }
 
 @keyframes correct {
-  0%, 22%, 42% {
+  0%,
+  22%,
+  42% {
     background: mediumblue;
   }
-  20%, 40%, 60% {
+  20%,
+  40%,
+  60% {
     background: linear-gradient(#0e0124, #22074d);
   }
-  62%, 100% {
+  62%,
+  100% {
     background: green;
   }
 }
@@ -139,13 +157,18 @@
 }
 
 @keyframes wrong {
-  0%, 22%, 42% {
+  0%,
+  22%,
+  42% {
     background: mediumblue;
   }
-  20%, 40%, 60% {
+  20%,
+  40%,
+  60% {
     background: linear-gradient(#0e0124, #22074d);
   }
-  62%, 100% {
+  62%,
+  100% {
     background: crimson;
   }
 }
@@ -160,39 +183,67 @@
 }
 
 .start {
-  width: 250px;
-  height: 100px;
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
 }
 
-.startInput {
-  width: 100%;
-  height: 30px;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 18px;
-}
-
-.startInput:focus {
-  outline: none;
-}
-
 .startButton {
-  width: 100%;
-  height: 30px;
+  margin-top: 30px;
+  width: 250px;
+  height: 40px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px;
   font-weight: 500;
+}
+
+.startButton:hover {
+  color: #f25e40;
+}
+/* For screens smaller than 768px */
+@media only screen and (max-width: 767px) {
+  .main {
+    width: 100%;
+  }
+  .moneyList {
+    width: 100%;
+  }
+  .moneyListItemNumber {
+    font-size: 14px;
+  }
+  .moneyListItemAmount {
+    font-size: 16px;
+  }
+  .timer {
+    font-size: 24px;
+  }
+  .question {
+    font-size: 16px;
+  }
+  .answer {
+    font-size: 14px;
+  }
+  .title {
+    width: 90vw;
+  }
+}
+
+/* For screens smaller than 480px */
+@media only screen and (max-width: 479px) {
+  .timer {
+    font-size: 20px;
+  }
+  .question {
+    font-size: 14px;
+  }
+  .answer {
+    font-size: 12px;
+  }
 }
