@@ -14,9 +14,9 @@ export default function Trivia({
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
-  const [letsPlay] = useSound(/* play */);
-  const [correctAnswer] = useSound(/* correct */);
-  const [wrongAnswer] = useSound(/* wrong */);
+  const [letsPlay] = useSound(play);
+  const [correctAnswer] = useSound(correct);
+  const [wrongAnswer] = useSound(wrong);
 
   useEffect(() => {
     letsPlay();
