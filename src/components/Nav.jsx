@@ -20,6 +20,10 @@ const Navbar = () => {
           src={Logo}
           alt="logo"
           style={{ width: "160px", height: "auto", borderRadius: "15px" }}
+          onClick={() =>
+            (window.location.href = "https://www.empleatecontalento.es/")
+          }
+          className="cursor-pointer"
         />
         <div className="flex items-center">
           <ul className="hidden md:inline-flex items-center gap-10">

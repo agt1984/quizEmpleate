@@ -309,7 +309,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className="app top-0 ">
       {startPage ? (
         <Start setStartPage={setStartPage} />
       ) : (
@@ -325,7 +325,7 @@ function App() {
             ) : timeOut ? (
               <div>
                 <h1
-                  className="flex
+                  className="
                 text-center 
                 items-center
                 justify-center gap-4 mt-8"

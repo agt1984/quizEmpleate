@@ -49,7 +49,7 @@ export default function Trivia({
     delay(1000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
     });
-    delay(5000, () => {
+    delay(3500, () => {
       if (a.correct) {
         correctAnswer();
         delay(1000, () => {
