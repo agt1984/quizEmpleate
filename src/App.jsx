@@ -279,6 +279,35 @@ function App() {
       setEarned(moneyPyramid.find((m) => m.id === questionNumber - 1).amount);
   }, [questionNumber, moneyPyramid]);
 
+  const resetGame = () => {
+    setGameOver(false);
+    setQuestionNumber(1);
+    setTimeOut(false);
+    setEarned(0);
+  };
+
+  const EndGameButtons = () => {
+    return (
+      <div className="flex justify-center gap-4 mt-8">
+        <button
+          onClick={resetGame}
+          className="bg-white text-red-500 mt-8 w-40 h-10 border-none rounded-md cursor-pointer text-lg font-medium"
+        >
+          Jugar de Nuevo
+        </button>
+        <button
+          onClick={() =>
+            (window.location.href =
+              "https://empleate-con-talento-front.vercel.app/")
+          }
+          className="bg-white text-red-500 mt-8 w-40 h-10 border-none rounded-md cursor-pointer text-lg font-medium"
+        >
+          Ir a la Principal
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="app">
       {startPage ? (
@@ -287,9 +316,19 @@ function App() {
         <>
           <div className="main">
             {gameOver ? (
-              <h1 className="endText">¡Felicidades! Has ganado: {earned}</h1>
+              <div>
+                <h1 className=" flex justify-center  gap-4 mt-8">
+                  ¡Felicidades! Has ganado: {earned}
+                </h1>
+                <EndGameButtons />
+              </div>
             ) : timeOut ? (
-              <h1 className="endText">Has ganado: {earned}</h1>
+              <div>
+                <h1 className="flex justify-center gap-4 mt-8">
+                  Has ganado: {earned}
+                </h1>
+                <EndGameButtons />
+              </div>
             ) : (
               <>
                 <div className="top">

@@ -27,6 +27,7 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
+  font-size: 4em;
 }
 
 .title {
