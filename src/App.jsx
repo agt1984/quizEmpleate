@@ -288,7 +288,7 @@ function App() {
 
   const EndGameButtons = () => {
     return (
-      <div className="flex justify-center gap-4 mt-8">
+      <div className="flex justify-center text-justify gap-4 mt-8">
         <button
           onClick={resetGame}
           className="bg-white text-red-500 mt-8 w-40 h-10 border-none rounded-md cursor-pointer text-lg font-medium"
@@ -314,18 +314,23 @@ function App() {
         <Start setStartPage={setStartPage} />
       ) : (
         <>
-          <div className="main">
+          <div className="main mdl:hidden overflow-hidden">
             {gameOver ? (
               <div>
-                <h1 className=" flex justify-center  gap-4 mt-8">
+                <h1 className=" flex flex-col justify-center gap-4 mt-8">
                   ¡Felicidades! Has ganado: {earned}
                 </h1>
                 <EndGameButtons />
               </div>
             ) : timeOut ? (
               <div>
-                <h1 className="flex justify-center gap-4 mt-8">
-                  Has ganado: {earned}
+                <h1
+                  className="flex
+                text-center 
+                items-center
+                justify-center gap-4 mt-8"
+                >
+                  Has ganado: <br /> {earned}
                 </h1>
                 <EndGameButtons />
               </div>

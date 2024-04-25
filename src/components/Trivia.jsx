@@ -24,6 +24,17 @@ export default function Trivia({
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]);
+
+    // Mezclar respuestas de manera aleatoria
+    if (data[questionNumber - 1]?.answers) {
+      const shuffledAnswers = [...data[questionNumber - 1]?.answers].sort(
+        () => Math.random() - 0.5
+      );
+      setQuestion((prevQuestion) => ({
+        ...prevQuestion,
+        answers: shuffledAnswers,
+      }));
+    }
   }, [data, questionNumber]);
 
   const delay = (duration, callback) => {
@@ -57,6 +68,7 @@ export default function Trivia({
       }
     });
   };
+
   return (
     <div className="trivia">
       <div className="question">{question?.question}</div>
