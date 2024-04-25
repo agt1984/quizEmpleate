@@ -9,6 +9,7 @@ function App() {
   const [timeOut, setTimeOut] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [earned, setEarned] = useState("$ 0");
+  const [gameOver, setGameOver] = useState(false);
 
   //TODO: traer el data del back con data.service
   const data = [
@@ -285,7 +286,9 @@ function App() {
       ) : (
         <>
           <div className="main">
-            {timeOut ? (
+            {gameOver ? (
+              <h1 className="endText">¡Felicidades! Has ganado: {earned}</h1>
+            ) : timeOut ? (
               <h1 className="endText">Has ganado: {earned}</h1>
             ) : (
               <>
@@ -303,12 +306,13 @@ function App() {
                     questionNumber={questionNumber}
                     setQuestionNumber={setQuestionNumber}
                     setTimeOut={setTimeOut}
+                    setGameOver={setGameOver}
                   />
                 </div>
               </>
             )}
           </div>
-          {!timeOut && ( // Asegura que el componente de la pirámide de dinero solo se muestre cuando timeOut sea falso
+          {!timeOut && !gameOver && (
             <div className="pyramid">
               <ul className="moneyList">
                 {moneyPyramid.map((m) => (

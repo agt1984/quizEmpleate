@@ -9,13 +9,14 @@ export default function Trivia({
   questionNumber,
   setQuestionNumber,
   setTimeOut,
+  setGameOver,
 }) {
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState("answer");
-  const [letsPlay] = useSound(play);
-  const [correctAnswer] = useSound(correct);
-  const [wrongAnswer] = useSound(wrong);
+  const [letsPlay] = useSound(/* play */);
+  const [correctAnswer] = useSound(/* correct */);
+  const [wrongAnswer] = useSound(/* wrong */);
 
   useEffect(() => {
     letsPlay();
@@ -34,35 +35,26 @@ export default function Trivia({
   const handleClick = (a) => {
     setSelectedAnswer(a);
     setClassName("answer active");
-    delay(3000, () => {
+    delay(1000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
     });
-    // setTimeout(() => {
-    //   setClassName(a.correct ? "answer correct" : "answer wrong");
-    // }, 3000);
-
-    // setTimeout(() => {
     delay(5000, () => {
       if (a.correct) {
         correctAnswer();
         delay(1000, () => {
-          setQuestionNumber((prev) => prev + 1);
-          setSelectedAnswer(null);
+          if (questionNumber < data.length) {
+            setQuestionNumber((prev) => prev + 1);
+            setSelectedAnswer(null);
+          } else {
+            setGameOver(true);
+          }
         });
-        // setTimeout(() => {
-        //   setQuestionNumber((prev) => prev + 1);
-        //   setSelectedAnswer(null);
-        // }, 1000);
       } else {
         wrongAnswer();
         delay(1000, () => {
           setTimeOut(true);
         });
-        // setTimeout(() => {
-        //   setTimeOut(true);
-        // }, 1000);
       }
-      // }, 5000);
     });
   };
   return (

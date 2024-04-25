@@ -24,7 +24,9 @@ const Navbar = () => {
         <div className="flex items-center">
           <ul className="hidden mdl:inline-flex items-center gap-10">
             <li className="text-white tracking-wide hover:text-stone-300 text-sm font-bold transition cursor-pointer">
-              <Link to="/home">INICIO</Link>
+              <Link to="https://empleate-con-talento-front.vercel.app">
+                INICIO
+              </Link>
             </li>
             <li className="text-white tracking-wide text-sm font-bold transition cursor-pointer">
               {currentUser ? (
@@ -32,7 +34,10 @@ const Navbar = () => {
                   LOGOUT
                 </button>
               ) : (
-                <Link to="/login" className="hover:text-stone-300">
+                <Link
+                  to="https://empleate-con-talento-front.vercel.app/login"
+                  className="hover:text-stone-300"
+                >
                   LOGIN
                 </Link>
               )}
@@ -57,7 +62,9 @@ const Navbar = () => {
               </div>
               <ul className="flex flex-col">
                 <li className="text-white tracking-wide hover:text-stone-300 text-sm font-bold transition cursor-pointer">
-                  <Link to="/home">INICIO</Link>
+                  <Link to="https://empleate-con-talento-front.vercel.app">
+                    INICIO
+                  </Link>
                 </li>
                 <li className="text-white tracking-wide text-sm font-bold transition cursor-pointer">
                   {currentUser ? (
@@ -68,7 +75,10 @@ const Navbar = () => {
                       LOGOUT
                     </button>
                   ) : (
-                    <Link to="/login" className="hover:text-stone-300">
+                    <Link
+                      to="https://empleate-con-talento-front.vercel.app/login"
+                      className="hover:text-stone-300"
+                    >
                       LOGIN
                     </Link>
                   )}
